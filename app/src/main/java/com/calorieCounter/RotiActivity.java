@@ -11,10 +11,16 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.calorieCounter.preferences.AppSharedPreference;
+
+import static com.calorieCounter.MainActivity.TOTAL_ROTI_EXTRA;
+
 public class RotiActivity extends AppCompatActivity{
 
     TextView tvTotalRoti;
-    int totalRoti = 85;
+    private final int totalRoti = 85;
+    private int totalCalories = 0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,9 +37,9 @@ public class RotiActivity extends AppCompatActivity{
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 int unit = Integer.parseInt(parent.getItemAtPosition(position).toString());
-                int i =  totalRoti * unit;
+                totalCalories= totalRoti * unit;
 
-                tvTotalRoti.setText(i+"");
+                tvTotalRoti.setText(totalCalories+"");
             }
 
             @Override
@@ -46,13 +52,19 @@ public class RotiActivity extends AppCompatActivity{
         btnRotiDone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+addDataToPreferences();
+
+
+
                 Intent intent = new Intent(RotiActivity.this, MainActivity.class);
-                intent.putExtra("totalRoti", totalRoti);
                 startActivity(intent);
                 finish();
             }
         });
     }
 
+private void addDataToPreferences(){
 
+    AppSharedPreference.addKey(TOTAL_ROTI_EXTRA, totalCalories);
+}
 }

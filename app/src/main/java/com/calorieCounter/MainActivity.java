@@ -1,7 +1,5 @@
 package com.calorieCounter;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,13 +8,18 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.calorieCounter.preferences.AppSharedPreference;
+
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static final String TOTAL_ROTI_EXTRA = "totalRoti";
+
     public ListView mListViewEatingTimes;
-    public String [] mArrTimes = {
-            "Breakfast", "Lunch", "Dinner", };
+    public String[] mealsArray = {"Breakfast", "Lunch", "Dinner",};
     public ArrayList<String> mListTimes;
     public ArrayAdapter<String> mAdapterTimes;
 
@@ -25,45 +28,32 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mListViewEatingTimes = findViewById( R.id.listViewEatingTimes );
-
-        if(getIntent().hasExtra("totalRoti")){
-
-
-            TextView txtTotal =  findViewById(R.id.txtTotal);
-            txtTotal.setText(getIntent().getIntExtra("totalRoti", 0)+"");
-
-        }
-
+        mListViewEatingTimes = findViewById(R.id.listViewEatingTimes);
+        TextView txtTotal = findViewById(R.id.txtTotal);
+        txtTotal.setText(AppSharedPreference.retrieveKey(TOTAL_ROTI_EXTRA) + "");
         mListTimes = new ArrayList<>();
-
-        mAdapterTimes = new ArrayAdapter<>(
-                this,
-                android.R.layout.simple_list_item_1,
-                mArrTimes
-        );
-
-        mListViewEatingTimes.setAdapter( mAdapterTimes );
+        mAdapterTimes = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, mealsArray);
+        mListViewEatingTimes.setAdapter(mAdapterTimes);
 
         mListViewEatingTimes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                if (position==0){
+                if (position == 0) {
 
-                    Intent intent = new Intent(MainActivity.this,BreakfastActivity.class);
+                    Intent intent = new Intent(MainActivity.this, BreakfastActivity.class);
                     startActivity(intent);
                 }
 
-                if (position==1){
+                if (position == 1) {
 
-                    Intent intent = new Intent(MainActivity.this,LunchActivity.class);
+                    Intent intent = new Intent(MainActivity.this, LunchActivity.class);
                     startActivity(intent);
                 }
 
-                if (position==2){
+                if (position == 2) {
 
-                    Intent intent = new Intent(MainActivity.this,DinnerActivity.class);
+                    Intent intent = new Intent(MainActivity.this, DinnerActivity.class);
                     startActivity(intent);
                 }
 
@@ -71,4 +61,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+
+
 }
