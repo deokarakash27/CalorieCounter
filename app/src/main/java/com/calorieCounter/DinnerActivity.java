@@ -13,11 +13,6 @@ import java.util.ArrayList;
 
 public class DinnerActivity extends AppCompatActivity {
 
-    public static final String TOTAL_DINNER_ROTI = "totalDinnerRoti";
-    public static final String TOTAL_DINNER_NAAN = "totalDinnerNaan";
-    public static final String TOTAL_DINNER_MUTTERPANEER = "totalDinnerMutterPaneer";
-    public static final String TOTAL_DINNER_MASURDAAL = "totalDinnerMasurDaal";
-
     private ListView mListViewDinnerItems;
     private String [] mArrItems = {
             "roti", "naan", "mutterPaneer", "masurDaal", };
@@ -51,24 +46,28 @@ public class DinnerActivity extends AppCompatActivity {
                 if (position==0){
 
                     Intent intent = new Intent(DinnerActivity.this, RotiActivity.class);
+                    intent.putExtra(Constant.SOURCE,Constant.SOURCE_DINNER);
                     startActivity(intent);
                 }
 
                 if (position==1){
 
                     Intent intent = new Intent(DinnerActivity.this, NaanActivity.class);
+                    intent.putExtra(Constant.SOURCE,Constant.SOURCE_DINNER);
                     startActivity(intent);
                 }
 
                 if (position==2){
 
                     Intent intent = new Intent(DinnerActivity.this, MutterPaneerActivity.class);
+                    intent.putExtra(Constant.SOURCE,Constant.SOURCE_DINNER);
                     startActivity(intent);
                 }
 
                 if (position==3){
 
                     Intent intent = new Intent(DinnerActivity.this, MasurDaalActivity.class);
+                    intent.putExtra(Constant.SOURCE,Constant.SOURCE_DINNER);
                     startActivity(intent);
                 }
 

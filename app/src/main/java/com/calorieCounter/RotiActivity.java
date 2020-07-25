@@ -1,7 +1,5 @@
 package com.calorieCounter;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -11,15 +9,15 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.calorieCounter.preferences.AppSharedPreference;
 
-import static com.calorieCounter.MainActivity.TOTAL_EXTRA;
-
-public class RotiActivity extends AppCompatActivity{
+public class RotiActivity extends AppCompatActivity {
 
 
-    TextView tvTotalRoti;
     private final int totalRoti = 85;
+    TextView tvTotalRoti;
     private int totalCalories = 0;
     private String source = "";
 
@@ -29,11 +27,11 @@ public class RotiActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_roti);
 
-        source=getIntent().getStringExtra(Constant.SOURCE);
+        source = getIntent().getStringExtra(Constant.SOURCE);
 
         tvTotalRoti = findViewById(R.id.tvTotalRoti);
         Spinner spinner = findViewById(R.id.spinnerRoti);
-        ArrayAdapter<CharSequence> arrayAdapter = ArrayAdapter.createFromResource(this,R.array.Units, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> arrayAdapter = ArrayAdapter.createFromResource(this, R.array.Units, android.R.layout.simple_spinner_item);
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(arrayAdapter);
 
@@ -41,13 +39,15 @@ public class RotiActivity extends AppCompatActivity{
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 int unit = Integer.parseInt(parent.getItemAtPosition(position).toString());
-                totalCalories= totalRoti * unit;
+                totalCalories = totalRoti * unit;
 
-                tvTotalRoti.setText(totalCalories+"");
+                tvTotalRoti.setText(totalCalories + "");
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
+
+                totalCalories = Integer.parseInt(parent.getItemAtPosition(0).toString());
 
             }
         });
@@ -56,8 +56,7 @@ public class RotiActivity extends AppCompatActivity{
         btnRotiDone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-addDataToPreferences();
-
+                addDataToPreferences();
 
 
                 Intent intent = new Intent(RotiActivity.this, MainActivity.class);
@@ -67,26 +66,25 @@ addDataToPreferences();
         });
     }
 
-private void addDataToPreferences(){
+    private void addDataToPreferences() {
 
-    switch(source) {
-        case Constant.SOURCE_BREAKFAST:
-            AppSharedPreference.addKey(Constant.BREAKFAST_ROTI, totalCalories);
-            break;
+        switch (source) {
+            case Constant.SOURCE_BREAKFAST:
+                AppSharedPreference.getInstance().addKey(Constant.BREAKFAST_ROTI, totalCalories);
+                break;
 
-        case Constant.SOURCE_LUNCH:
-            AppSharedPreference.addKey(Constant.LUNCH_ROTI, totalCalories);
-            break;
+            case Constant.SOURCE_LUNCH:
+                AppSharedPreference.getInstance().addKey(Constant.LUNCH_ROTI, totalCalories);
+                break;
 
-        case Constant.SOURCE_DINNER:
-            AppSharedPreference.addKey(Constant.DINNER_ROTI, totalCalories);
-            break;
+            case Constant.SOURCE_DINNER:
+                AppSharedPreference.getInstance().addKey(Constant.DINNER_ROTI, totalCalories);
+                break;
 
-        default:
-            break;
+            default:
+                break;
+        }
+
+
     }
-
-
-
-}
 }

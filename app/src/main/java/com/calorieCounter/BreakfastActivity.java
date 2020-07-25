@@ -13,10 +13,6 @@ import java.util.ArrayList;
 
 public class BreakfastActivity extends AppCompatActivity {
 
-    public static final String TOTAL_BREAKFAST_ROTI = "totalBreakfastRoti";
-    public static final String TOTAL_BREAKFAST_NAAN = "totalBreakfastNaan";
-    public static final String TOTAL_BREAKFAST_MUTTERPANEER = "totalBreakfastMutterPaneer";
-    public static final String TOTAL_BREAKFAST_MASURDAAL = "totalBreakfastMasurDaal";
 
     private ListView mListViewBreakfastItems;
     private String[] mArrItems = {

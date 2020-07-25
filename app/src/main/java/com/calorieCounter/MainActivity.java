@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
         mListViewEatingTimes = findViewById(R.id.listViewEatingTimes);
         TextView txtTotal = findViewById(R.id.txtTotal);
-        txtTotal.setText(AppSharedPreference.retrieveKey(TOTAL_EXTRA) + "");
+        txtTotal.setText(AppSharedPreference.getInstance().getTotalCalorieCount()+"");
         mListTimes = new ArrayList<>();
         mAdapterTimes = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, mealsArray);
         mListViewEatingTimes.setAdapter(mAdapterTimes);
