@@ -13,19 +13,23 @@ import android.widget.TextView;
 
 import com.calorieCounter.preferences.AppSharedPreference;
 
-import static com.calorieCounter.MainActivity.TOTAL_ROTI_EXTRA;
+import static com.calorieCounter.MainActivity.TOTAL_EXTRA;
 
 public class RotiActivity extends AppCompatActivity{
+
 
     TextView tvTotalRoti;
     private final int totalRoti = 85;
     private int totalCalories = 0;
+    private String source = "";
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_roti);
+
+        source=getIntent().getStringExtra(Constant.SOURCE);
 
         tvTotalRoti = findViewById(R.id.tvTotalRoti);
         Spinner spinner = findViewById(R.id.spinnerRoti);
@@ -65,6 +69,24 @@ addDataToPreferences();
 
 private void addDataToPreferences(){
 
-    AppSharedPreference.addKey(TOTAL_ROTI_EXTRA, totalCalories);
+    switch(source) {
+        case Constant.SOURCE_BREAKFAST:
+            AppSharedPreference.addKey(Constant.BREAKFAST_ROTI, totalCalories);
+            break;
+
+        case Constant.SOURCE_LUNCH:
+            AppSharedPreference.addKey(Constant.LUNCH_ROTI, totalCalories);
+            break;
+
+        case Constant.SOURCE_DINNER:
+            AppSharedPreference.addKey(Constant.DINNER_ROTI, totalCalories);
+            break;
+
+        default:
+            break;
+    }
+
+
+
 }
 }

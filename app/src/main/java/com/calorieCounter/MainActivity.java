@@ -16,7 +16,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static final String TOTAL_ROTI_EXTRA = "totalRoti";
+    public static final String TOTAL_EXTRA = "totalCount";
 
     public ListView mListViewEatingTimes;
     public String[] mealsArray = {"Breakfast", "Lunch", "Dinner",};
@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
         mListViewEatingTimes = findViewById(R.id.listViewEatingTimes);
         TextView txtTotal = findViewById(R.id.txtTotal);
-        txtTotal.setText(AppSharedPreference.retrieveKey(TOTAL_ROTI_EXTRA) + "");
+        txtTotal.setText(AppSharedPreference.retrieveKey(TOTAL_EXTRA) + "");
         mListTimes = new ArrayList<>();
         mAdapterTimes = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, mealsArray);
         mListViewEatingTimes.setAdapter(mAdapterTimes);
@@ -61,6 +61,5 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
-
 
 }

@@ -13,6 +13,11 @@ import java.util.ArrayList;
 
 public class LunchActivity extends AppCompatActivity {
 
+    public static final String TOTAL_LUNCH_ROTI = "totalLunchRoti";
+    public static final String TOTAL_LUNCH_NAAN = "totalLunchtNaan";
+    public static final String TOTAL_LUNCH_MUTTERPANEER = "totalLunchMutterPaneer";
+    public static final String TOTAL_LUNCH_MASURDAAL = "totalLunchMasurDaal";
+
     private ListView mListViewLunchItems;
     private String [] mArrItems = {
             "roti", "naan", "mutterPaneer", "masurDaal", };

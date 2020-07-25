@@ -47,6 +47,7 @@ public class NaanActivity extends AppCompatActivity {
         btnNaanDone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent intent = new Intent(NaanActivity.this, MainActivity.class);
                 intent.putExtra("totalNaan", totalNaan);
                 startActivity(intent);

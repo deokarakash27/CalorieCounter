@@ -1,11 +1,9 @@
 package com.calorieCounter;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -15,9 +13,14 @@ import java.util.ArrayList;
 
 public class BreakfastActivity extends AppCompatActivity {
 
+    public static final String TOTAL_BREAKFAST_ROTI = "totalBreakfastRoti";
+    public static final String TOTAL_BREAKFAST_NAAN = "totalBreakfastNaan";
+    public static final String TOTAL_BREAKFAST_MUTTERPANEER = "totalBreakfastMutterPaneer";
+    public static final String TOTAL_BREAKFAST_MASURDAAL = "totalBreakfastMasurDaal";
+
     private ListView mListViewBreakfastItems;
-    private String [] mArrItems = {
-            "roti", "naan", "mutterPaneer", "masurDaal", };
+    private String[] mArrItems = {
+            "roti", "naan", "mutterPaneer", "masurDaal",};
 
     private ArrayList<String> mListItems;
     private ArrayAdapter<String> mAdapterItems;
@@ -28,7 +31,7 @@ public class BreakfastActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_breakfast);
 
-        mListViewBreakfastItems = findViewById( R.id.listViewBreakfasItemst );
+        mListViewBreakfastItems = findViewById(R.id.listViewBreakfasItemst);
 
         mListItems = new ArrayList<>();
 
@@ -38,34 +41,39 @@ public class BreakfastActivity extends AppCompatActivity {
                 mArrItems
 
         );
-        mListViewBreakfastItems.setAdapter( mAdapterItems );
+        mListViewBreakfastItems.setAdapter(mAdapterItems);
 
         mListViewBreakfastItems.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                if (position==0){
+                if (position == 0) {
 
                     Intent intent = new Intent(BreakfastActivity.this, RotiActivity.class);
+                    intent.putExtra(Constant.SOURCE,Constant.SOURCE_BREAKFAST);
                     startActivityForResult(intent, 100);
                 }
 
-                if (position==1){
+                if (position == 1) {
 
                     Intent intent = new Intent(BreakfastActivity.this, NaanActivity.class);
-                    startActivityForResult(intent,100);
+                    intent.putExtra(Constant.SOURCE,Constant.SOURCE_BREAKFAST);
+                    startActivityForResult(intent, 100);
+
                 }
 
-                if (position==2){
+                if (position == 2) {
 
                     Intent intent = new Intent(BreakfastActivity.this, MutterPaneerActivity.class);
-                    startActivityForResult(intent,100);
+                    intent.putExtra(Constant.SOURCE,Constant.SOURCE_BREAKFAST);
+                    startActivityForResult(intent, 100);
                 }
 
-                if (position==3){
+                if (position == 3) {
 
                     Intent intent = new Intent(BreakfastActivity.this, MasurDaalActivity.class);
-                    startActivityForResult(intent,100);
+                    intent.putExtra(Constant.SOURCE,Constant.SOURCE_BREAKFAST);
+                    startActivityForResult(intent, 100);
                 }
 
                 finish();
@@ -74,17 +82,4 @@ public class BreakfastActivity extends AppCompatActivity {
 
     }
 
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//
-//        if (resultCode == RESULT_OK){
-//            if (requestCode == 100){
-//                if (data != null){
-//                    totalOfAllItems = totalOfAllItems + data.getIntExtra("totalAmount", 0);
-//                    Log.e("totalOfAllItems","xyz" + totalOfAllItems);
-//                }
-//            }
-//        }
-//    }
 }

@@ -13,6 +13,11 @@ import java.util.ArrayList;
 
 public class DinnerActivity extends AppCompatActivity {
 
+    public static final String TOTAL_DINNER_ROTI = "totalDinnerRoti";
+    public static final String TOTAL_DINNER_NAAN = "totalDinnerNaan";
+    public static final String TOTAL_DINNER_MUTTERPANEER = "totalDinnerMutterPaneer";
+    public static final String TOTAL_DINNER_MASURDAAL = "totalDinnerMasurDaal";
+
     private ListView mListViewDinnerItems;
     private String [] mArrItems = {
             "roti", "naan", "mutterPaneer", "masurDaal", };
