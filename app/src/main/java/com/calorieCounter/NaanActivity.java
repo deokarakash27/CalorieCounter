@@ -32,7 +32,7 @@ public class NaanActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 int unit = Integer.parseInt(parent.getItemAtPosition(position).toString());
                 int i = totalNaan * unit;
-                tvTotalNaan.setText(i);
+                tvTotalNaan.setText(i+"");
             }
 
 
