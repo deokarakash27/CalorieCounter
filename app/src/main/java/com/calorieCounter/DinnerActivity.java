@@ -18,6 +18,7 @@ public class DinnerActivity extends AppCompatActivity {
             "roti", "naan", "mutterPaneer", "masurDaal", };
     private ArrayList<String> mListItems;
     private ArrayAdapter<String> mAdapterItems;
+    private String test = "test";
 
 
     @Override
