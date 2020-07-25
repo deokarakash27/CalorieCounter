@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -22,14 +23,27 @@ public class MainActivity extends AppCompatActivity {
     public String[] mealsArray = {"Breakfast", "Lunch", "Dinner",};
     public ArrayList<String> mListTimes;
     public ArrayAdapter<String> mAdapterTimes;
+    private TextView txtTotal;
+    public Button btnReset;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        txtTotal = findViewById(R.id.txtTotal);
+
+        btnReset = findViewById(R.id.btnReset);
+        btnReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                 AppSharedPreference.getInstance().clear();
+                txtTotal.setText(AppSharedPreference.getInstance().getTotalCalorieCount()+"");
+
+            }
+        });
+
         mListViewEatingTimes = findViewById(R.id.listViewEatingTimes);
-        TextView txtTotal = findViewById(R.id.txtTotal);
         txtTotal.setText(AppSharedPreference.getInstance().getTotalCalorieCount()+"");
         mListTimes = new ArrayList<>();
         mAdapterTimes = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, mealsArray);

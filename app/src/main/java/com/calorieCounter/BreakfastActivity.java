@@ -20,7 +20,6 @@ public class BreakfastActivity extends AppCompatActivity {
 
     private ArrayList<String> mListItems;
     private ArrayAdapter<String> mAdapterItems;
-    int totalOfAllItems = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

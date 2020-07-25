@@ -79,7 +79,8 @@ public class MutterPaneerActivity extends AppCompatActivity {
                 break;
 
             case Constant.SOURCE_DINNER:
-                AppSharedPreference.getInstance().addKey(Constant.DINNER_MUTER_PANNER, totalCalories);
+                AppSharedPreference.getInstance().
+                        addKey(Constant.DINNER_MUTER_PANNER, totalCalories);
                 break;
 
             default:

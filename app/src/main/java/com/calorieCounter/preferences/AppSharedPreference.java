@@ -33,19 +33,20 @@ public class AppSharedPreference {
         Log.e("AppSharedPreference","Key="+key+" Value="+value);
         mEditor.putInt(key, value);
         mEditor.commit();
+        Log.e("AppSharedPreference",getTotalCalorieCount()+"");
     }
 
     private static int retrieveKey(String key) {
         return mPreferences.getInt(key, 0);
     }
 
-    private static void clear() {
+    public static void clear() {
         mEditor.clear();
         mEditor.commit();
     }
 
     public static int getTotalCalorieCount() {
-        return retrieveKey(Constant.BREAKFAST_ROTI) +
+        return  retrieveKey(Constant.BREAKFAST_ROTI) +
                 retrieveKey(Constant.BREAKFAST_NAAN) +
                 retrieveKey(Constant.BREAKFAST_MUTER_PANNER) +
                 retrieveKey(Constant.BREAKFAST_MASUR_DAAL) +
@@ -59,8 +60,6 @@ public class AppSharedPreference {
                 retrieveKey(Constant.DINNER_NAAN) +
                 retrieveKey(Constant.DINNER_MUTER_PANNER) +
                 retrieveKey(Constant.DINNER_MASUR_DAAL);
-
+        }
 
     }
-
-}

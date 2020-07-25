@@ -8,19 +8,28 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:orientation="horizontal">
 
         <TextView
+            android:layout_alignParentLeft="true"
             android:id="@+id/txtTotal"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_gravity="left"
-            android:textSize="50dp" />
+            tools:text="30"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="50sp" />
 
-    </LinearLayout>
+        <Button
+            android:layout_alignParentRight="true"
+            android:id="@+id/btnReset"
+            android:padding="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="RESET"/>
+
+    </RelativeLayout>
 
 
     <ListView
