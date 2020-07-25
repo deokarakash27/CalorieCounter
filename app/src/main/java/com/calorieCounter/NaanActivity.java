@@ -40,7 +40,7 @@ public class NaanActivity extends AppCompatActivity {
 
                 totalCalories = totalNaan * unit;
 
-                tvTotalNaan.setText(totalCalories+"");
+                tvTotalNaan.setText( "Total " + totalCalories + " Cal");
             }
 
 

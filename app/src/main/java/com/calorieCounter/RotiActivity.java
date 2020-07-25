@@ -41,7 +41,7 @@ public class RotiActivity extends AppCompatActivity {
                 int unit = Integer.parseInt(parent.getItemAtPosition(position).toString());
                 totalCalories = totalRoti * unit;
 
-                tvTotalRoti.setText(totalCalories + "");
+                tvTotalRoti.setText( "Total " + totalCalories + " Cal");
             }
 
             @Override

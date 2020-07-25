@@ -10,25 +10,25 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Roti"
-        android:textSize="60dp"
+        android:text="Food Item:Roti"
+        android:textSize="40sp"
         android:textAlignment="center"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Calories 85"
+        android:text="Calories per unit=85"
         android:textAlignment="center"
         android:paddingBottom="20dp"
-        android:textSize="60dp" />
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/tvTotalRoti"
         android:layout_gravity="center"
         android:layout_width="200dp"
-        android:text="85"
-        android:textSize="40dp"
-        android:textAlignment="center"
+        android:text="Total 85 Cal"
+        android:textSize="22sp"
+        android:padding="10dp"
         android:layout_height="50dp"/>
 
     <LinearLayout

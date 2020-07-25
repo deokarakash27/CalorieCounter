@@ -10,25 +10,25 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="MutterPaneer"
-        android:textSize="60dp"
+        android:text="Food item: MutterPaneer"
+        android:textSize="40sp"
         android:textAlignment="center"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Calories 167"
+        android:text="Calories per unit 167"
         android:textAlignment="center"
-        android:paddingBottom="20dp"
-        android:textSize="60dp" />
+        android:padding="10dp"
+        android:textSize="22sp" />
 
     <TextView
         android:id="@+id/tvTotalMutterPaneer"
         android:layout_gravity="center"
         android:layout_width="200dp"
         android:layout_height="50dp"
-        android:text="167"
-        android:textSize="40dp"
+        android:text="Total 167 Cal"
+        android:textSize="22sp"
         android:textAlignment="center"/>
 
     <LinearLayout

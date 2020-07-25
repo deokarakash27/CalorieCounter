@@ -41,7 +41,7 @@ public class MutterPaneerActivity extends AppCompatActivity {
                 int unit = Integer.parseInt(parent.getItemAtPosition(position).toString());
                 totalCalories = totalMutterPaneer * unit;
 
-                tvTotalMutterPaneer.setText(totalCalories + "");
+                tvTotalMutterPaneer.setText( "Total " + totalCalories + " Cal");
 
             }
 

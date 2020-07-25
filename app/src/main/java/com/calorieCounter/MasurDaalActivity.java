@@ -40,8 +40,7 @@ public class MasurDaalActivity extends AppCompatActivity {
                 int unit = Integer.parseInt(parent.getItemAtPosition(position).toString());
                 totalCalories =  totalMasurDaal * unit;
 
-                tvTotalMasurDaal.setText(totalCalories+"");
-
+                tvTotalMasurDaal.setText( "Total " + totalCalories + " Cal");
             }
 
             @Override
